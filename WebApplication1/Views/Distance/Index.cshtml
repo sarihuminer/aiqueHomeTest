@@ -55,7 +55,7 @@
     <p>Distance:</p>
     <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
     <p>Value: <span id="demo"></span></p>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Index", "Distance", FormMethod.Post))
     {
         <table border="0" cellpadding="5" cellspacing="0">
             <tr>
@@ -80,8 +80,16 @@
             </tr>
         </table>
     }
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function(){
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
 
-    <input type="text" id="FromAddress" />
+    @*<input type="text" id="FromAddress" />*@
     <p>lan @ViewBag.lan</p>
     <p>let @ViewBag.len</p>
 </div>
@@ -123,14 +131,7 @@
     
     initMap();
 </script>
-@if (ViewBag.Message != null)
-{
-    <script type="text/javascript">
-            window.onload = function(){
-                alert("@ViewBag.Message");
-            };
-    </script>
-}
+
 
 
 

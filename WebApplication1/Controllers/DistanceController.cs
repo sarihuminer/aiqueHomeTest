@@ -61,7 +61,7 @@ namespace WebApplication1.Controllers
              var con = new MySqlConnection(cs);
             con.Open();
 
-            string sql = "SELECT * FROM tustus_db.WCMS_ZipCodes;";
+            string sql = "SELECT *  FROM tustus_db.WCMS_ZipCodes limit 10;";
              var cmd = new MySqlCommand(sql, con);
 
              MySqlDataReader rdr = cmd.ExecuteReader();

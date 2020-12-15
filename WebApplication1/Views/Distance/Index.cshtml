@@ -44,39 +44,43 @@
         }
 </style>
 
-<h2>Index</h2>
-<label>new area</label>
-<input type="text" />
-<br />
+
+
 <div class="slidecontainer">
-    <p>Distance:</p>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-    <p>Value: <span id="demo"></span></p>
+
     @using (Html.BeginForm("Index", "Distance", FormMethod.Post))
     {
-        <table border="0" cellpadding="5" cellspacing="0">
-            <tr>
-                <td>Location</td>
-                <td>@Html.TextBox("txtLocation")</td>
-            </tr>
-            <tr style="display:none">
-                <td>Address</td>
-                <td>@Html.TextBox("txtAddress")</td>
-            </tr>
-            <tr style="display:none">
-                <td>Latitude</td>
-                <td>@Html.TextBox("txtLatitude")</td>
-            </tr>
-            <tr style="display:none">
-                <td>Longitude</td>
-                <td>@Html.TextBox("txtLongitude")</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Create" id="create" /></td>
-            </tr>
-        </table>
+    <table border="0" cellpadding="5" cellspacing="0">
+        <tr>
+            <td>new area</td>
+            <td>@Html.TextBox("txtLocation")</td>
+        </tr>
+        <tr style="display:none">
+            <td>Address</td>
+            <td>@Html.TextBox("txtAddress")</td>
+        </tr>
+        <tr style="display:none">
+            <td>Latitude</td>
+            <td>@Html.TextBox("txtLatitude")</td>
+        </tr>
+        <tr style="display:none">
+            <td>Longitude</td>
+            <td>@Html.TextBox("txtLongitude")</td>
+        </tr>
+        <tr style="display:none">
+            <td>Longitude</td>
+            <td>@Html.TextBox("txtRad")</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create" id="create" /></td>
+        </tr>
+    </table>
+        <p>Distance:</p>
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <p>Value: <span id="demo"></span> Miles</p>
     }
+
     @if (ViewBag.Message != null)
     {
         <script type="text/javascript">
@@ -84,7 +88,7 @@
                 alert("@ViewBag.Message");
             };
         </script>
-            Html.RenderPartial("_zip");
+        Html.RenderPartial("_zip");
     }
 
 
@@ -92,10 +96,13 @@
 <script>
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
+    var textrad = document.getElementById("txtRad");
+    textrad.value = slider.value;
+
     output.innerHTML = slider.value;
 
     slider.oninput = function () {
-        output.innerHTML = this.value + " Miles";
+        output.innerHTML = this.value;
     }
 
     function initMap() {

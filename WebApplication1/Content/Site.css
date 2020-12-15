@@ -2,6 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     color:blueviolet;
+    margin-top:10px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -28,4 +29,15 @@ textarea {
     font-size:16px;
     font-weight:bold;
     color:white;
+}
+.zips {
+    display: inline-flex;
+    margin:6px;
+}
+.zip{
+    margin-right:6px;
+    margin-right:6px;
+}
+.checkbox{
+    margin-right:3px;
 }

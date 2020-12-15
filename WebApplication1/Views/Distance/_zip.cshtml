@@ -1,21 +1,30 @@
 ﻿@model IEnumerable<WebApplication1.Models.ZipCodes>
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.zip)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
+<h1>
+    @Html.DisplayNameFor(model => model.zip)
+</h1>
+
+
+@foreach (var item in Model)
+{ 
+    <div class="zips">
+
+        <input type="checkbox" class="checkbox">
+        <div class="zip">
             @Html.DisplayFor(modelItem => item.zip)
-        </td>
-      
-    </tr>
+        </div>
+        <div>
+            |
+        </div>
+    </div>
+
+@*<div class="row">
+     <div class="col-4 col-md-2">
+             @Html.DisplayFor(modelItem => item.zip)
+         </div>
+    </div>*@
+
 }
 
-</table>

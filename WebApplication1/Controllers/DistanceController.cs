@@ -73,7 +73,6 @@ namespace WebApplication1.Controllers
                 objZip.zip = rdr.GetString(2);
                 ziplist.Add(objZip);
             }
-
             return View(ziplist);
         }
     }

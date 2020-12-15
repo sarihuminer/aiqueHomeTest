@@ -5,9 +5,6 @@
 </script>
 @{
     ViewBag.Title = "Index";
-    ViewBag.lan = "30";
-    ViewBag.len = "50";
-
 }
 <style>
     .slidecontainer {
@@ -62,21 +59,21 @@
                 <td>Location</td>
                 <td>@Html.TextBox("txtLocation")</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>Address</td>
                 <td>@Html.TextBox("txtAddress")</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>Latitude</td>
                 <td>@Html.TextBox("txtLatitude")</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>Longitude</td>
                 <td>@Html.TextBox("txtLongitude")</td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Submit" /></td>
+                <td><input type="submit" value="Create" id="create" /></td>
             </tr>
         </table>
     }
@@ -87,13 +84,11 @@
                 alert("@ViewBag.Message");
             };
         </script>
+            Html.RenderPartial("_zip");
     }
 
-    @*<input type="text" id="FromAddress" />*@
-    <p>lan @ViewBag.lan</p>
-    <p>let @ViewBag.len</p>
+
 </div>
-<button></button>
 <script>
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
@@ -104,20 +99,6 @@
     }
 
     function initMap() {
-        //input 1
-
-        //google.maps.event.addDomListener(window, 'load', function () {
-        //    var options = {
-        //        types: ['(cities)'],
-        //        componentRestrictions: { country: "in" }
-        //    };
-
-        //    var input = document.getElementById('FromAddress');
-        //    var places = new google.maps.places.Autocomplete(input, options);
-
-        //});
-
-        //input 2
         google.maps.event.addDomListener(window, 'load', function () {
             var places = new google.maps.places.Autocomplete(document.getElementById('txtLocation'));
             google.maps.event.addListener(places, 'place_changed', function () {

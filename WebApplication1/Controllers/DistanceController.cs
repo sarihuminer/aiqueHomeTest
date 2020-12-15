@@ -13,5 +13,13 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            ViewBag.Message = "Address: " + form["txtAddress"];
+            ViewBag.Message += "\\nLatitude: " + form["txtLatitude"];
+            ViewBag.Message += "\\nLongitude: " + form["txtLongitude"];
+            return View();
+        }
     }
 }
